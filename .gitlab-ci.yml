@@ -4,7 +4,7 @@
 .node: &node
   image: node:6.14.0
   before_script:
-    - npm install
+    - npm install --unsafe-perm
   cache:
     key: "$CI_COMMIT_REF_NAME"
     paths:
