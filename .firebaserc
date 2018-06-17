@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "nuxt2-example-dev",
+    "develop": "nuxt2-example-dev",
+    "production": "nuxt2-example-prod"
+  }
+}

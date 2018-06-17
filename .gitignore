@@ -3,7 +3,8 @@
 /src/node_modules/
 /functions/node_modules/
 
-# local env files
+# env files
+.env
 .env.local
 .env.*.local
 
@@ -11,6 +12,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+firebase-debug.log
 
 # Editor directories and files
 .idea
@@ -32,6 +34,3 @@ dist/
 
 # Public folder
 /public/
-
-# This file will be generated.
-/functions/package.json
