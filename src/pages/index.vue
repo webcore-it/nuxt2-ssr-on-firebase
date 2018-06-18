@@ -3,7 +3,7 @@
   <nf-content-card>
     <h1 class="display-3">Home</h1>
     <p>
-      Example app to demonstrate the deployment of a Nuxt.js 2.0 ssr app on Google Firebase Functions.
+      Example app to demonstrate the deployment of a Nuxt.js 2.0 SSR app on Google Firebase Functions.
     </p>
     <p>
       GitHub repo: <a href="https://github.com/webcore-it/nuxt2-ssr-on-firebase">https://github.com/webcore-it/nuxt2-ssr-on-firebase</a>

@@ -5,7 +5,7 @@
     <h2 class="display-1">Impressum</h2>
     <p>
       This site notice ("Impressum") applies to the website
-      https://nuxt2-example-dev.firebaseio.com.
+      https://nuxt2-example-dev.firebaseapp.com.
     </p>
 
     <h4>Address</h4>
@@ -46,7 +46,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Site notice (Impressum) for nuxt2-example-dev.firebaseio.com',
+          content: 'Site notice (Impressum) for nuxt2-example-dev.firebaseapp.com',
         },
       ],
     };

@@ -1,6 +1,8 @@
 # nuxt2-ssr-on-firebase
 Example for hosting a Nuxt.js 2.0 SSR app on Google Firebase Functions.
 
+Test the deployed version while browsing through the source code: https://nuxt2-example-dev.firebaseapp.com/
+
 
 # Explain! Explain!
 

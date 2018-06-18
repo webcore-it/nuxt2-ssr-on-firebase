@@ -12,7 +12,7 @@ module.exports = {
       {
         hid: 'description',
         name: 'description',
-        content: 'Example for hosting a Nuxt.js 2.0 ssr app on Google Firebase.',
+        content: 'Example for hosting a Nuxt.js 2.0 SSR app on Google Firebase.',
       },
       { name: 'apple-mobile-web-app-title', content: 'Nuxt 2 Firebase' },
       { name: 'application-name', content: 'Nuxt 2 Firebase' },

@@ -7,15 +7,17 @@
     <p>
       This page simply uses Google Firestore without the requirement for Nuxt
       to do any ramp up work on the server side.
-      The page uses the Vuex getter <code>pricePredictions</code> and has to wait, until
-      Vuexfire has bound the Firebase collection to the store.
+      The page uses the Vuex getter <code>pricePredictions</code> and has to wait until
+      Vuexfire has bound the Firebase collection to the Vuex store.
       That binding is triggered from the <code>mounted</code> method
       in <code>src/layouts/default.vue</code>.
     </p>
 
     <p>
       A click on one of the buttons will add a new entry into the Firestore
-      collection and that new prediction pops up in the list.
+      collection and that new prediction pops up in the list. Since Firestore is a "realtime database",
+      the list will update whenever the collection is altered. You can simulate this by using
+      2 different browsers.
     </p>
 
     <h2 class="headline mt-5">Give your price prediction</h2>
