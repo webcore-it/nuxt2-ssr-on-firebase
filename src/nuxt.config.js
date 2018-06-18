@@ -43,7 +43,10 @@ module.exports = {
   // Setup modules
   // ======================================================================
   modules: [
-    '@nuxtjs/axios',
+    ['@nuxtjs/axios', {
+      baseURL: process.env.API_BASE_URL,
+      browserBaseURL: process.env.API_BASE_URL,
+    }],
 
     ['@nuxtjs/vuetify', {
       theme: {

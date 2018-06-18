@@ -28,7 +28,8 @@ export const getters = {
  */
 export const actions = {
   async init({ commit, dispatch }) {
-    const result = await this.$axios.$get(`${process.env.apiBaseUrl}/getRedVsBlue`);
+    console.log('vuex.redVsBlue.actions.init');
+    const result = await this.$axios.$get('/api/getRedVsBlue');
 
     const winner = {
       name: result.name || 'blue',
