@@ -7,6 +7,9 @@
     "test": "jest",
     "lint": "eslint ."
   },
+
+  "___EXPLAIN___1__": "functionsDependencies ars packages needed by the code in this project for itself.",
+
   "functionsDependencies": {
     "express": "^4.16.3",
     "firebase-admin": "^5.12.1",
@@ -14,13 +17,21 @@
     "babel-polyfill": "^6.26.0",
     "clone": "^2.1.1",
     "core-js": "^2.5.7",
-    "debug": "^3.1.0",
+    "debug": "^3.1.0"
+  },
+
+  "___EXPLAIN___2__": "nuxtDependencies are packages needed by nuxt-edge, which Firebase Functions...",
+  "___EXPLAIN___3__": "... is not able to resolve correctly.",
+  "___EXPLAIN___4__": "Check file npm-generate-functions-package-json.js",
+
+  "nuxtDependencies": {
     "lodash": "^4.17.10",
     "vue": "^2.5.16",
     "vue-meta": "^1.5.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
+
   "dependencies": {
     "express": "^4.16.3",
     "firebase-admin": "^5.12.1",

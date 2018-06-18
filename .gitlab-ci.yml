@@ -38,6 +38,17 @@ deploy_develop:
   only:
     - develop
 
+deploy_staging:
+  stage: deploy
+  environment:
+    name: staging
+  <<: *node
+  script:
+    - npm run build
+    - npm run deploy
+  only:
+    - staging
+
 deploy_production:
   stage: deploy
   environment:
