@@ -10,10 +10,11 @@ const nuxtPackage = require('./src/node_modules/nuxt-edge/package.json');
 
 // Merge the 'functions-dependencies' from the ./functions/package.json with the dependencies
 // from the ./src/package.json and the dependencies from ./src/node_modules/nuxt-edge/package.json
-// This is because Google Firebase Functions is not able to resolve the dependencies.
+// This is necessary because Google Firebase Functions is not able to resolve the deep dependencies.
+// TODO: Find a better way to manage the dependencies
 functionsPackage.dependencies = Object.assign(
   {},
-  functionsPackage['functions-dependencies'],
+  functionsPackage.functionsDependencies,
   srcPackage.dependencies
   // nuxtPackage.dependencies
 );

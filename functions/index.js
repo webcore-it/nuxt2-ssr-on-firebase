@@ -1,5 +1,3 @@
-// require('dotenv').config({path: './../src/.env'});
-
 const functions = require('firebase-functions');
 const express = require('express');
 const { Nuxt } = require('nuxt-edge');
@@ -8,6 +6,8 @@ const app = express();
 const nuxt = new Nuxt({
   dev: false,
   buildDir: '.nuxt',
+  // TODO: automatically parse develop projectId from .firebaserc file in the root folder.
+  debug: process.env.GCP_PROJECT === 'nuxt2-example-dev',
   build: {
     publicPath: '/assets/',
   },
@@ -27,13 +27,13 @@ app.get('*', handleRequest);
 app.use(handleRequest);
 exports.ssrapp = functions.https.onRequest(app);
 
+
 /**
  * Backend function to determine the winner of the everlasting fight red vs. blue.
  *
- * TODO: This should live outside of index.js
- *
+ * TODO: Move outside of index.js
  */
-exports.getRedVsBlue = functions.https.onRequest((request, response) => {
+exports.getRedVsBlue = functions.https.onRequest((req, res) => {
   const time = new Date().getTime();
   let winner = { time };
 
@@ -42,6 +42,6 @@ exports.getRedVsBlue = functions.https.onRequest((request, response) => {
   } else { // Timestamp is even.
     winner.name = 'red';
   }
-  response.send(winner);
+  res.send(winner);
 
 });
