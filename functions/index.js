@@ -14,7 +14,10 @@ const nuxt = new Nuxt({
 });
 
 function handleRequest(req, res) {
-  res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
+  // Set the cache time to a low number to get a response from the server and not us the
+  // cached content in your browser.
+  // Or do not cache the ssr response at all.
+  res.set('Cache-Control', 'public, max-age=1, s-maxage=1'); // set time to 1sec for this example
   return new Promise((resolve, reject) => {
     nuxt.render(req, res, (promise) => {
       promise.then(resolve).catch(reject);
