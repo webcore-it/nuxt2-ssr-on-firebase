@@ -80,7 +80,7 @@ Functions!
 
 To start the Firebase Functions, execute in the root folder:
 ```$bash
-npm run serve
+npm run serve:build
 ```
 
 This will build the Nuxt app into the folder `functions/.nuxt` and start the Firebase services
@@ -91,7 +91,7 @@ also hot-reloading for changes inside the `functions` folder.
 ### What URL now?
 
 Just use `localhost:3000`. In the created `.env` file is a setting for the path to the backend. 
-For the local development it is `API_BASE_URL=http://localhost:5000/api`. 
+For the local development it is `API_BASE_URL=http://localhost:5000`. 
 
 
 ## Test SSR app local
