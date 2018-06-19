@@ -1,0 +1,61 @@
+# Line 4 is an anchor (&) to use the same node config in
+# multiple jobs. It is disabled (.) to not be interpreted
+# by the GitLab CI runner.
+.node: &node
+  image: node:6.14.0
+  before_script:
+    - npm install --unsafe-perm
+  cache:
+    key: "$CI_COMMIT_REF_NAME"
+    paths:
+      - node_modules/
+      - functions/node_modules/
+      - src/node_modules/
+
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  environment:
+    name: develop
+  <<: *node
+  script:
+    - npm test
+  only:
+    - develop
+    - master
+
+deploy_develop:
+  stage: deploy
+  environment:
+    name: develop
+  <<: *node
+  script:
+    - npm run build
+    - npm run deploy
+  only:
+    - develop
+
+deploy_staging:
+  stage: deploy
+  environment:
+    name: staging
+  <<: *node
+  script:
+    - npm run build
+    - npm run deploy
+  only:
+    - staging
+
+deploy_production:
+  stage: deploy
+  environment:
+    name: production
+  <<: *node
+  script:
+    - npm run build
+    - npm run deploy
+  only:
+    - master

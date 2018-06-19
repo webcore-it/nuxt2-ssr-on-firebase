@@ -1,0 +1,36 @@
+.DS_Store
+/node_modules/
+/src/node_modules/
+/functions/node_modules/
+
+# env files
+.env
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log
+
+# Editor directories and files
+.idea
+*.iml
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Testing
+/src/test/unit/coverage/
+/src/test/e2e/reports/
+selenium-debug.log
+
+# Nuxt build
+.nuxt/
+dist/
+
+# Public folder
+/public/

@@ -1,0 +1,15 @@
+{
+  "hosting": {
+    "public": "public",
+    "rewrites": [
+      {
+        "source": "/api/getRedVsBlue",
+        "function": "getRedVsBlue"
+      },
+      {
+        "source": "**",
+        "function": "ssrapp"
+      }
+    ]
+  }
+}
