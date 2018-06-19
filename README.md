@@ -123,6 +123,17 @@ The deployment process is very simple:
 - npm run deploy
 
 
+### Firebase plan
+
+Not sure why the API call `/api/getRedVsBlue` in `src/store/redVsBlue.js` is not treated as an
+"outbound network request to a Google-owned service" ([see pricing](https://cloud.google.com/functions/pricing?authuser=1#networking)).
+So to run this example on Firebase, your project must have the "Flame" or "Blaze" plan.
+
+Maybe its possible to call a `function A` from a `function B` over HTTP in a way, Google 
+accounts it as part of the free tier. I did not have had the time to find out how, since
+most of my project use the "Blaze" plan anyway.
+  
+
 ### Set the needed env variables
 
 By using an CI/CD runner, the env variables needed for the `build` and `deploy` process

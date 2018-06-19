@@ -7,7 +7,7 @@ import 'firebase/firestore';
  * ======================================================================
  */
 export const state = () => ({
-  currentWinner: null,
+  currentWinner: {name: 'pink', time: -1},
   winners: [],
 });
 
@@ -29,13 +29,21 @@ export const getters = {
 export const actions = {
   async init({ commit, dispatch }) {
     console.log('vuex.redVsBlue.actions.init');
-    const result = await this.$axios.$get('/api/getRedVsBlue');
+    let winner = {};
 
-    const winner = {
-      name: result.name || 'blue',
-      time: result.time || new Date().getTime(),
-    };
-    console.log('vuex.redVsBlue.actions.init', result);
+    try {
+      const result = await this.$axios.$get('/api/getRedVsBlue');
+      console.log('vuex.redVsBlue.actions.init result', result);
+
+      winner = {
+        name: result.name || 'blue',
+        time: result.time || new Date().getTime(),
+      };
+    } catch (error) {
+      console.error('ERROR for this.$axios.$get("/api/getRedVsBlue")', error);
+      return;
+    }
+
     commit('setCurrentWinner', winner);
 
     await firebase.firestore().collection('redVsBlue').add(winner);
