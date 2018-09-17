@@ -2,7 +2,7 @@
 # multiple jobs. It is disabled (.) to not be interpreted
 # by the GitLab CI runner.
 .node: &node
-  image: node:6.14.0
+  image: node:8.11.1
   before_script:
     - npm install --unsafe-perm
   cache:
