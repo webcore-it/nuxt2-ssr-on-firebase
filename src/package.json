@@ -13,21 +13,21 @@
     "lint": "eslint --ext .vue,.js ."
   },
   "dependencies": {
-    "nuxt-edge": "^2.0.0-25476008.ba5c979",
+    "nuxt-edge": "^2.0.0-25619719.2dd2f2a",
     "@nuxtjs/axios": "^5.3.1",
     "axios": "^0.18.0",
     "@nuxtjs/vuetify": "^0.4.2",
-    "vuetify": "^1.1.0-alpha.6",
+    "vuetify": "^1.2.3",
     "dotenv": "^6.0.0",
-    "firebase": "^5.0.4",
+    "firebase": "^5.5.0",
     "vuexfire": "^3.0.0-alpha.5"
   },
   "devDependencies": {
     "babel-plugin-transform-remove-console": "^6.9.4",
-    "eslint": "^4.19.1",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-vue": "^4.5.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.3"
+    "eslint": "^5.6.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-vue": "^4.7.1",
+    "node-sass": "^4.9.3",
+    "sass-loader": "^7.1.0"
   }
 }

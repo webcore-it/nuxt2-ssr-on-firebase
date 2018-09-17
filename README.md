@@ -51,12 +51,12 @@ separated files.
  
 ## Local development
 
-1. set your local node version to 6.14.0 (use [n](https://www.npmjs.com/package/n) or [nvm](https://github.com/creationix/nvm))
+1. set your local node version to 8.11.1 (use [n](https://www.npmjs.com/package/n) or [nvm](https://github.com/creationix/nvm))
 1. copy the file `src/.env-template` to `src/.env` and set your Firebase variables.
 1. set your Firebase project names in `.firebaserc`
 
 My goal is to have the frontend and backend running locally while development. The frontend is 
-stated by Nuxt and the backend is started by the `firebase-tools`.  
+started by Nuxt and the backend is started by the `firebase-tools`.  
 
 
 ### Start Nuxt locally
@@ -131,7 +131,7 @@ So to run this example on Firebase, your project must have the "Flame" or "Blaze
 
 Maybe its possible to call a `function A` from a `function B` over HTTP in a way, Google 
 accounts it as part of the free tier. I did not have had the time to find out how, since
-most of my project use the "Blaze" plan anyway.
+most of my projects use the "Blaze" plan anyway.
   
 
 ### Set the needed env variables
