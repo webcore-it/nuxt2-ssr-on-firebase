@@ -29,8 +29,8 @@
     "deploy": "firebase deploy --non-interactive --token $FIREBASE_DEPLOY_KEY"
   },
   "devDependencies": {
-    "copyfiles": "^2.0.0",
-    "firebase-tools": "^3.18.6",
+    "copyfiles": "^2.1.0",
+    "firebase-tools": "^4.2.1",
     "rimraf": "^2.6.2"
   },
   "dependencies": {}
