@@ -94,7 +94,7 @@ Just use `localhost:3000`. In the created `.env` file is a setting for the path 
 For the local development it is `API_BASE_URL=http://localhost:5000`. 
 
 
-## Test SSR app local
+## Test SSR app locally
 
 Execute in the root folder:
 ```$bash
@@ -136,12 +136,12 @@ most of my projects use the "Blaze" plan anyway.
 
 ### Set the needed env variables
 
-By using an CI/CD runner, the env variables needed for the `build` and `deploy` process
+By using a CI/CD runner, the env variables needed for the `build` and `deploy` process
 can be set in the CI tool. Set all variables from the `src/.env` file for each 
 environment as well as `FIREBASE_DEPLOY_KEY` for the deployment (it's the same for all environments).
 
 The env variables used while building the app are copied to the generated Nuxt app. This means there
-is no need to provide the Firebase Functions with that variables - they already set.
+is no need to provide the Firebase Functions with that variables - they are already set.
 
 
 ### npm run build

@@ -2,6 +2,11 @@ require('dotenv').config();
 
 module.exports = {
   // ======================================================================
+  // Basics
+  // ======================================================================
+  mode: 'universal',
+
+  // ======================================================================
   // Set head section of the page.
   // ======================================================================
   head: {
@@ -65,9 +70,7 @@ module.exports = {
   // Setup plugins
   // ======================================================================
   plugins: [
-    {
-      src: '~/plugins/firebase',
-    },
+    { src: '~/plugins/firebase', ssr: true },
   ],
 
   // ======================================================================
@@ -92,18 +95,10 @@ module.exports = {
   // ======================================================================
   buildDir: process.env.BUILD_DIR || './../functions/.nuxt',
   build: {
-    analyze: true,
+    analyze: process.env.ENABLE_ANALYZE_MODE === 'true', // env variables are strings
     publicPath: '/assets/',
     extractCSS: true,
-    splitChunks: {
-      layouts: false,
-    },
-    optimization: {
-      splitChunks: {
-        name: true,
-      },
-      runtimeChunk: false,
-    },
+
     babel: {
       'env': {
         'production': {
@@ -112,16 +107,8 @@ module.exports = {
       },
     },
 
-    // Run ESLint on save
-    extend(config, { isDev }) {
-      if (isDev) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-        });
-      }
-    },
+    // Extend webpack config
+    // ~~~~~~~~~~~~~~~~~~~~~
+    extend(config, { isServer, isDev }) {},
   },
 };
