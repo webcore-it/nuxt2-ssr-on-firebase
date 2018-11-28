@@ -9,8 +9,8 @@ const os = require('os');
 // Get the npm command on unix and win.
 const npmCmd = os.platform().startsWith('win') ? 'npm.cmd' : 'npm';
 
-// npm i in src folder.
-console.log('1) --> npm install in src folder');
+// Run "npm install" in src folder.
+console.log('1) --> Run "npm install" in src folder');
 spawnSync(`${npmCmd} i`, {
   shell: true,
   env: process.env,
@@ -19,7 +19,7 @@ spawnSync(`${npmCmd} i`, {
 });
 
 
-// npm i in functions folder.
+// Prepare package.json in functions folder.
 console.log('2) --> generate the functions package.json dependencies section.');
 spawnSync('node npm-generate-functions-package-json.js', {
   shell: true,
@@ -28,8 +28,8 @@ spawnSync('node npm-generate-functions-package-json.js', {
 });
 
 
-// npm i in functions folder.
-console.log('3) --> npm install in functions folder');
+// Run "npm install" in functions folder.
+console.log('3) --> Run "npm install" in functions folder');
 spawnSync(`${npmCmd} i`, {
   shell: true,
   env: process.env,
