@@ -9,8 +9,8 @@ const os = require('os');
 // Get the npm command on unix and win.
 const npmCmd = os.platform().startsWith('win') ? 'npm.cmd' : 'npm';
 
-// npm run lint in src folder.
-console.log('1) --> npm lint in src folder');
+// Run "npm lint" in src folder.
+console.log('1) --> Run "npm lint" in src folder');
 spawnSync(`${npmCmd} run lint`, {
   shell: true,
   env: process.env,
@@ -18,8 +18,8 @@ spawnSync(`${npmCmd} run lint`, {
   stdio: 'inherit',
 });
 
-// npm run lint in functions folder.
-console.log('2) --> npm lint in functions folder');
+// Run "npm lint" in functions folder.
+console.log('2) --> Run "npm lint" in functions folder');
 spawnSync(`${npmCmd} run lint`, {
   shell: true,
   env: process.env,

@@ -1,7 +1,7 @@
 {
   "name": "nuxt2-ssr-on-firebase-src",
-  "description": "src folder",
-  "author": "Thomas Zanthoff <info@webcore-it.com>",
+  "description": "src folder - the nuxt app lives here.",
+  "author": "Tom Zanthoff <info@webcore-it.com>",
   "private": true,
   "scripts": {
     "dev": "DEBUG=nuxt:* BUILD_DIR=.nuxt nuxt",
@@ -13,21 +13,21 @@
     "lint": "eslint --ext .vue,.js ."
   },
   "dependencies": {
-    "nuxt-edge": "^2.0.0-25619719.2dd2f2a",
-    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/vuetify": "^0.4.3",
     "axios": "^0.18.0",
-    "@nuxtjs/vuetify": "^0.4.2",
-    "vuetify": "^1.2.3",
-    "dotenv": "^6.0.0",
-    "firebase": "^5.5.0",
+    "dotenv": "^6.1.0",
+    "firebase": "^5.5.9",
+    "nuxt": "^2.3.4",
+    "vuetify": "^1.3.11",
     "vuexfire": "^3.0.0-alpha.5"
   },
   "devDependencies": {
     "babel-plugin-transform-remove-console": "^6.9.4",
-    "eslint": "^5.6.0",
-    "eslint-loader": "^2.1.0",
-    "eslint-plugin-vue": "^4.7.1",
-    "node-sass": "^4.9.3",
+    "eslint": "^5.9.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "next",
+    "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0"
   }
 }

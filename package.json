@@ -1,36 +1,33 @@
 {
   "name": "nuxt2-ssr-on-firebase",
   "description": "Root of nuxt2-ssr-on-firebase",
-  "author": "Thomas Zanthoff <info@webcore-it.com>",
+  "version": "1.0.0",
+  "author": "Tom Zanthoff <info@webcore-it.com>",
   "private": true,
+  "license": "MIT",
+  "repository": "https://github.com/webcore-it/nuxt2-ssr-on-firebase",
+  "homepage": "https://github.com/webcore-it/nuxt2-ssr-on-firebase",
   "scripts": {
     "postinstall": "node ./npm-install.js",
-
     "dev": "cd ./src && npm run dev",
-
     "prebuild": "npm run clean",
     "build": "cd ./src && npm run build",
     "postbuild": "npm run copyassets && npm run copystatic",
-
     "start": "cd ./src && npm run start",
     "generate": "cd ./src && npm run generate",
-
     "serve": "DEBUG=nuxt:* firebase serve --only hosting,functions",
     "serve:build": "npm run build && npm run serve",
-
     "test": "cd ./src && npm run test",
     "lint": "node ./npm-lint.js",
-
     "clean": "mkdir -p ./public && rimraf ./public/* && mkdir -p ./functions/.nuxt && rimraf ./functions/.nuxt/*",
     "copyassets": "cp -R ./functions/.nuxt/dist/ ./public/assets",
     "copystatic": "cp -R ./src/static/* ./public",
-
     "predeploy": "firebase use --token $FIREBASE_DEPLOY_KEY $CI_ENVIRONMENT_SLUG",
     "deploy": "firebase deploy --non-interactive --token $FIREBASE_DEPLOY_KEY"
   },
   "devDependencies": {
     "copyfiles": "^2.1.0",
-    "firebase-tools": "^4.2.1",
+    "firebase-tools": "^6.1.1",
     "rimraf": "^2.6.2"
   },
   "dependencies": {}
