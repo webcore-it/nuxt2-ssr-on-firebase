@@ -82,6 +82,7 @@ Functions!
 
 To start the Firebase Functions, execute in the root folder:
 ```$bash
+npm install
 npm run serve:build
 ```
 

@@ -11,14 +11,14 @@ module.exports = {
   // Set head section of the page.
   // ======================================================================
   head: {
-    title: 'Nuxt.js 2.0 ssr app on Google Firebase',
+    title: 'Nuxt.js 2.x ssr app on Google Firebase',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Example for hosting a Nuxt.js 2.0 SSR app on Google Firebase.',
+        content: 'Example for hosting a Nuxt.js 2.x SSR app on Google Firebase.',
       },
       { name: 'apple-mobile-web-app-title', content: 'Nuxt 2 Firebase' },
       { name: 'application-name', content: 'Nuxt 2 Firebase' },

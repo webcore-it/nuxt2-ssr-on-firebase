@@ -7,7 +7,7 @@
     <v-layout class="toolbar-content-wrapper">
 
       <v-toolbar-title @click="goToRoute('/')">
-        Nuxt 2.0 Firebase
+        Nuxt 2.x on Firebase
       </v-toolbar-title>
 
       <v-spacer/>

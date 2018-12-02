@@ -33,6 +33,8 @@ deploy_develop:
     name: develop
   <<: *node
   script:
+    - echo 'API_BASE_URL'
+    - echo ${API_BASE_URL}
     - npm run build
     - npm run deploy
   only:
