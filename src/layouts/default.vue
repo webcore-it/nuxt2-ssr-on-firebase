@@ -19,29 +19,29 @@
 
 
 <script>
-import { mapActions } from 'vuex';
-import routerMixin from '~/mixins/routerMixin';
-import NfFooter from '~/components/layout/NfFooter';
-import NfTopBar from '~/components/layout/NfTopBar';
+  import { mapActions } from 'vuex';
+  import NfFooter from '~/components/layout/NfFooter';
+  import NfTopBar from '~/components/layout/NfTopBar';
+  import routerMixin from '~/mixins/routerMixin';
 
-export default {
-  components: {
-    NfTopBar,
-    NfFooter,
-  },
-  mixins: [
-    routerMixin,
-  ],
-  mounted() {
-    this.initStore();
-  },
-  methods: {
-    ...mapActions({
-      initStore: 'init',
-    }),
+  export default {
+    components: {
+      NfTopBar,
+      NfFooter,
+    },
+    mixins: [
+      routerMixin,
+    ],
+    mounted() {
+      this.initStore();
+    },
+    methods: {
+      ...mapActions({
+        initStore: 'init',
+      }),
 
-  },
-};
+    },
+  };
 </script>
 
 

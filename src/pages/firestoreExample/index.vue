@@ -24,14 +24,14 @@
     <p>
       I think the price will...
       <v-btn
-        color="success"
         @click="rise"
+        color="success"
       >
         ... rise
       </v-btn>
       <v-btn
-        color="error"
         @click="fall"
+        color="error"
       >
         ... fall
       </v-btn>
@@ -41,9 +41,9 @@
 
     <v-list two-line>
       <v-list-tile
+        :key="prediction.id"
         v-for="prediction in pricePredictions"
         v-if="prediction.createdAt && prediction.createdAt.seconds"
-        :key="prediction.id"
       >
         <v-list-tile-action>
           <v-icon :color="getPredictionIconColor(prediction)">
@@ -66,57 +66,57 @@
 
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
-import dateFormatMixin from '../../mixins/dateFormatMixin';
-import NfContentCard from '../../components/content/NfContentCard';
+  import { mapActions, mapGetters } from 'vuex';
+  import NfContentCard from '../../components/content/NfContentCard';
+  import dateFormatMixin from '../../mixins/dateFormatMixin';
 
-export default {
-  components: {
-    NfContentCard,
-  },
-  mixins: [
-    dateFormatMixin,
-  ],
-  computed: {
-    ...mapGetters({
-      pricePredictions: 'bitcoin/pricePredictions',
-    }),
-  },
-  methods: {
-    ...mapActions({
-      add: 'bitcoin/add',
-    }),
-    async rise() {
-      await this.add({ trend: 'rise' });
+  export default {
+    components: {
+      NfContentCard,
     },
-    async fall() {
-      await this.add({ trend: 'fall' });
+    mixins: [
+      dateFormatMixin,
+    ],
+    computed: {
+      ...mapGetters({
+        pricePredictions: 'bitcoin/pricePredictions',
+      }),
     },
-    getPredictionIconName(prediction) {
-      if (prediction.trend === 'rise') {
-        return 'arrow_upwards';
-      }
-      return 'arrow_downwards';
+    methods: {
+      ...mapActions({
+        add: 'bitcoin/add',
+      }),
+      async rise() {
+        await this.add({ trend: 'rise' });
+      },
+      async fall() {
+        await this.add({ trend: 'fall' });
+      },
+      getPredictionIconName(prediction) {
+        if (prediction.trend === 'rise') {
+          return 'arrow_upwards';
+        }
+        return 'arrow_downwards';
+      },
+      getPredictionIconColor(prediction) {
+        if (prediction.trend === 'rise') {
+          return 'success';
+        }
+        return 'error';
+      },
     },
-    getPredictionIconColor(prediction) {
-      if (prediction.trend === 'rise') {
-        return 'success';
-      }
-      return 'error';
+    head() {
+      return {
+        title: 'Firestore example - BTC price prediction:',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'Example of using Firestore.',
+          },
+        ],
+      };
     },
-  },
-  head() {
-    return {
-      title: 'Firestore example - BTC price prediction:',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Example of using Firestore.',
-        },
-      ],
-    };
-  },
 
-};
+  };
 </script>

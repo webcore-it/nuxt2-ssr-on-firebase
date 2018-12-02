@@ -22,8 +22,8 @@
 
     <h2 class="headline mt-5">The winner for this initial page load</h2>
     <v-alert
-      :value="true"
       :color="currentWinner.name"
+      :value="true"
       type="success"
     >
       {{ currentWinner.name }} <i>[time was {{ currentWinner.time }}]</i>
@@ -33,8 +33,8 @@
 
     <v-list two-line>
       <v-list-tile
-        v-for="winner in winners"
         :key="winner.id"
+        v-for="winner in winners"
       >
         <v-list-tile-action>
           <v-icon :color="winner.name">star</v-icon>
@@ -55,31 +55,31 @@
 
 
 <script>
-import { mapGetters } from 'vuex';
-import NfContentCard from '../../components/content/NfContentCard';
+  import { mapGetters } from 'vuex';
+  import NfContentCard from '../../components/content/NfContentCard';
 
-export default {
-  components: {
-    NfContentCard,
-  },
-  computed: {
-    ...mapGetters({
-      currentWinner: 'redVsBlue/currentWinner',
-      winners: 'redVsBlue/winners',
-    }),
-  },
-  head() {
-    return {
-      title: 'Red vs Blue - 100% SSR',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Content is 100% server side rendered (generated).',
-        },
-      ],
-    };
-  },
+  export default {
+    components: {
+      NfContentCard,
+    },
+    computed: {
+      ...mapGetters({
+        currentWinner: 'redVsBlue/currentWinner',
+        winners: 'redVsBlue/winners',
+      }),
+    },
+    head() {
+      return {
+        title: 'Red vs Blue - 100% SSR',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'Content is 100% server side rendered (generated).',
+          },
+        ],
+      };
+    },
 
-};
+  };
 </script>

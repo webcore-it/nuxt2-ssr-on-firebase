@@ -6,9 +6,9 @@
 
 
 <script>
-export default {
-  name: 'NfContentCard',
-};
+  export default {
+    name: 'NfContentCard',
+  };
 </script>
 
 

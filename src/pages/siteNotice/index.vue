@@ -33,24 +33,24 @@
 
 
 <script>
-import NfContentCard from '~/components/content/NfContentCard';
+  import NfContentCard from '~/components/content/NfContentCard';
 
-export default {
-  components: {
-    NfContentCard,
-  },
-  head() {
-    return {
-      title: 'Site notice',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Site notice (Impressum) for nuxt2-example-dev.firebaseapp.com',
-        },
-      ],
-    };
-  },
+  export default {
+    components: {
+      NfContentCard,
+    },
+    head() {
+      return {
+        title: 'Site notice',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'Site notice (Impressum) for nuxt2-example-dev.firebaseapp.com',
+          },
+        ],
+      };
+    },
 
-};
+  };
 </script>
