@@ -21,15 +21,15 @@
 
 
 <script>
-import routerMixin from '~/mixins/routerMixin';
-import NfContentCard from '~/components/content/NfContentCard';
+  import NfContentCard from '~/components/content/NfContentCard';
+  import routerMixin from '~/mixins/routerMixin';
 
-export default {
-  components: {
-    NfContentCard,
-  },
-  mixins: [
-    routerMixin,
-  ],
-};
+  export default {
+    components: {
+      NfContentCard,
+    },
+    mixins: [
+      routerMixin,
+    ],
+  };
 </script>

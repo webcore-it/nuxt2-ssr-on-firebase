@@ -5,6 +5,7 @@ module.exports = {
   // Basics
   // ======================================================================
   mode: 'universal',
+  srcDir: 'src/',
 
   // ======================================================================
   // Set head section of the page.
@@ -75,7 +76,8 @@ module.exports = {
 
   // ======================================================================
   // Map system env props to internal env. (https://nuxtjs.org/api/configuration-env)
-  // Create a .env file in the same folder as this nuxt.config.js to set your local env variables.
+  // You need to create a .env file in the same folder as this nuxt.config.js
+  // to set your local env variables.
   // ======================================================================
   env: {
     baseUrl: process.env.BASE_URL || '',
@@ -93,7 +95,7 @@ module.exports = {
   // ======================================================================
   // Build configuration
   // ======================================================================
-  buildDir: process.env.BUILD_DIR || './../functions/.nuxt',
+  buildDir: process.env.BUILD_DIR || './functions/.nuxt',
   build: {
     analyze: process.env.ENABLE_ANALYZE_MODE === 'true', // env variables are strings
     publicPath: '/assets/',
@@ -108,7 +110,6 @@ module.exports = {
     },
 
     // Extend webpack config
-    // ~~~~~~~~~~~~~~~~~~~~~
     extend(config, { isServer, isDev }) {},
   },
 };
