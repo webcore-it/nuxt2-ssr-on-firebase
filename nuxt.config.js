@@ -80,8 +80,8 @@ module.exports = {
   // to set your local env variables.
   // ======================================================================
   env: {
-    baseUrl: process.env.BASE_URL || '',
-    apiBaseUrl: process.env.API_BASE_URL || '',
+    baseUrl: process.env.BASE_URL || 'https://nuxt2-example-dev.firebaseapp.com',
+    apiBaseUrl: process.env.API_BASE_URL || 'https://nuxt2-example-dev.firebaseapp.com',
     firebaseConfig: {
       apiKey: process.env.FIREBASE_CONFIG_API_KEY || '',
       authDomain: process.env.FIREBASE_CONFIG_AUTH_DOMAIN || '',
