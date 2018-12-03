@@ -2,19 +2,16 @@ const functions = require('firebase-functions');
 const express = require('express');
 const { Nuxt } = require('nuxt');
 
-// Load the copied nuxt config.
-let config = require('./nuxt.config.js');
-// But do a few things differently in the Firebase environment:
-// Don't start in dev mode
-config.dev = false;
-// Set the path to the .nuxt folder.
-config.buildDir = '.nuxt';
-
-config = {
+// Use a very simplified version of the config to run the already
+// build app on Firebase Functions.
+const config = {
+  // Don't start in dev mode.
   dev: false,
+  // Set the path to the .nuxt folder.
   buildDir: '.nuxt',
-  // TODO: automatically parse develop projectId from .firebaserc file in the root folder.
+  // Enable debug when in the develop environment.
   debug: process.env.GCP_PROJECT === 'nuxt2-example-dev',
+  // Path to the assets.
   build: {
     publicPath: '/assets/',
   },

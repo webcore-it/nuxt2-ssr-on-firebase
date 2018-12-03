@@ -80,8 +80,8 @@ module.exports = {
   // to set your local env variables.
   // ======================================================================
   env: {
-    baseUrl: process.env.BASE_URL || 'https://nuxt2-example-dev.firebaseapp.com',
-    apiBaseUrl: process.env.API_BASE_URL || 'https://nuxt2-example-dev.firebaseapp.com',
+    baseUrl: process.env.BASE_URL || '',
+    apiBaseUrl: process.env.API_BASE_URL || '',
     firebaseConfig: {
       apiKey: process.env.FIREBASE_CONFIG_API_KEY || '',
       authDomain: process.env.FIREBASE_CONFIG_AUTH_DOMAIN || '',
@@ -100,14 +100,6 @@ module.exports = {
     analyze: process.env.ENABLE_ANALYZE_MODE === 'true', // env variables are strings
     publicPath: '/assets/',
     extractCSS: true,
-
-    babel: {
-      'env': {
-        'production': {
-          'plugins': [],
-        },
-      },
-    },
 
     // Extend webpack config
     extend(config, { isServer, isDev }) {},

@@ -14,7 +14,7 @@
 
     "prebuild": "npm run clean",
     "build": "nuxt build",
-    "postbuild": "npm run copyassets && npm run copystatic && npm run copyconfig",
+    "postbuild": "npm run copyassets && npm run copystatic",
 
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
