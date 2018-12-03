@@ -8,8 +8,17 @@ let config = require('./nuxt.config.js');
 // Don't start in dev mode
 config.dev = false;
 // Set the path to the .nuxt folder.
-config.buildDir = './.nuxt';
+config.buildDir = '.nuxt';
 
+config = {
+  dev: false,
+  buildDir: '.nuxt',
+  // TODO: automatically parse develop projectId from .firebaserc file in the root folder.
+  debug: process.env.GCP_PROJECT === 'nuxt2-example-dev',
+  build: {
+    publicPath: '/assets/',
+  },
+};
 
 // Init Nuxt.js.
 const nuxt = new Nuxt(config);

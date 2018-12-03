@@ -104,7 +104,7 @@ module.exports = {
     babel: {
       'env': {
         'production': {
-          'plugins': ['transform-remove-console'],
+          'plugins': [],
         },
       },
     },
