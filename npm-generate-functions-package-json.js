@@ -26,8 +26,8 @@ packageJson.devDependencies = {};
 // Remove merged dependencies.
 packageJson.firebaseFunctionsDependencies = {};
 
-// Remove npm post install.
-delete packageJson.scripts.postinstall;
+// Remove all scripts.
+packageJson.scripts = {};
 
 fs.writeFile('./functions/package.json', JSON.stringify(packageJson, null, 2), (error) => {
   if (error) {

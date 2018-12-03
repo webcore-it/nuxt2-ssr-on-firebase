@@ -15,6 +15,12 @@
     <v-btn @click="goToRoute('/firestoreExample')">
       Firestore example
     </v-btn>
+
+    <h2 class="display-1 pt-8">Asset example</h2>
+    <p>
+      This image is loaded from the assets folder with <code>src="~/assets/screenshot.jpg"</code>.
+    </p>
+    <img src="~/assets/screenshot.jpg" alt="Screenshot of this page">
   </nf-content-card>
 
 </template>
@@ -33,3 +39,9 @@
     ],
   };
 </script>
+
+<style class="scss" scoped>
+  .pt-8 {
+    padding-top: 2rem;
+  }
+</style>

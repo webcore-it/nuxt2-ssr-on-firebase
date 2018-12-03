@@ -28,7 +28,6 @@
     "clean": "mkdir -p ./public && rimraf ./public/* && mkdir -p ./functions/.nuxt && rimraf ./functions/.nuxt/*",
     "copyassets": "cp -R ./functions/.nuxt/dist/ ./public/assets",
     "copystatic": "cp -R ./src/static/* ./public",
-    "copyconfig": "cp ./nuxt.config.js ./functions",
 
     "predeploy": "firebase use --token $FIREBASE_DEPLOY_KEY $CI_ENVIRONMENT_SLUG",
     "deploy": "firebase deploy --non-interactive --token $FIREBASE_DEPLOY_KEY"
