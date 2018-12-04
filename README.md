@@ -4,7 +4,7 @@ Example for hosting a Nuxt.js 2.3 SSR app on Google Firebase Functions running N
 Test the deployed version while browsing through the source code: https://nuxt2-example-dev.firebaseapp.com/
 
 
-# Explain! Explain!
+# Explanation
 
 I try to give you as much information as possible, but it takes ages to describe every detail.
 Let's keep it this way: If you have a question, create an 
@@ -14,7 +14,7 @@ me on [Twitter](https://twitter.com/WebCoreIT). I'll try to answer you and updat
 
 ## Basics
 
-The repo contains 3 parts for 3 different tasks:
+This repository contains 3 parts for 3 different tasks:
 
 - root
 - src
@@ -32,7 +32,7 @@ the Nuxt.js configuration and some file generation.
 - `npm-install.js` creates a package.json in the `functions` folder and runs the command `npm i` there.
 - `npm-generate-functions-package-json.js` is used to set all needed packages in the `functions/package.json`.
 - `nuxt.config.js` contains the Nuxt.js configuration used for development and production.
-- `.env-template` contains all environment variables which are needed for the development.
+- `.env-template` template contains all environment variables which are needed for the development.
 
 
 ### src
@@ -47,17 +47,22 @@ function: The `ssrapp` function which is the "Nuxt server". The configuration fo
 using Nuxt.js as middleware are in `functions/nuxtServer.js`.
 
 When there are other backend tasks, more functions need to be exported. In this example
-is another function `getRedVsBlue`. The code is separated in a file called `functions/api/redVsBlue.js`. 
+there is another function `getRedVsBlue`. The code is separated in a file called `functions/api/redVsBlue.js`. 
 
  
 ## Local development
 
-1. set your local node version to 8 (use [n](https://www.npmjs.com/package/n) or [nvm](https://github.com/creationix/nvm))
-1. copy the file `.env-template` to `.env` and set your Firebase variables.
-1. set your Firebase project names in `.firebaserc`
+1. set your local node version to 8 (use [n](https://www.npmjs.com/package/n) or [nvm](https://github.com/creationix/nvm)).
+1. copy the file `.env-template` to `.env` and set your Firebase variables in the `.env` file.
+1. set your Firebase project names in `.firebaserc`.
+1. run `npm install` in the root folder to install all needed packages.
 
 My goal is to have the frontend and backend running locally while development. The frontend is 
-started by Nuxt and the backend is started by the `firebase-tools`.  
+started by Nuxt and the backend is started by the `firebase-tools`. The reason for this is to be able
+to develop the backend functions inside `functions/api` along with the Nuxt.js app in `src`.
+
+⚠️ _If you only want to use Firebase Functions to host your Nuxt.js app, there is no need to have the Firebase Functions 
+running locally - since all you backend calls will go to other services._
 
 
 ### Start Nuxt locally
@@ -67,11 +72,14 @@ To start the Nuxt app, execute in the root folder:
 npm run dev
 ```
 
-It will run this command in the `src` folder: `DEBUG=nuxt:* BUILD_DIR=.nuxt nuxt`
-- `DEBUG=nuxt:*` enables more debug output 
-- `BUILD_DIR=.nuxt` tells Nuxt to use the folder `src/.nuxt` when running locally
+It will run this command: `HOST=0.0.0.0 DEBUG=nuxt:* NODE_ENV=development nuxt`
+- `HOST=0.0.0.0` enables other (mobile) devices to access the locally running app via the IP in the local network.  
+- `DEBUG=nuxt:*` enables more debug output.
+- `NODE_ENV=development` explicitly use dev environment.
+- `nuxt` start the app in development mode
 
-The app is running on `localhost:3000`. But all requests to the backend (in this 
+The app is running on `localhost:3000` (also accessible via the IP in the local network - Nuxt.js will print 
+the IP when it starts). But all requests to the backend (in this 
 example the call to `http://localhost:5000/api/getRedVsBlue` from the `init` action 
 in file `src/store/redVsBlue.js`) will not be handled yet - let's start the Firebase 
 Functions!
@@ -81,7 +89,6 @@ Functions!
 
 To start the Firebase Functions, execute in the root folder:
 ```$bash
-npm install
 npm run serve:build
 ```
 
@@ -89,14 +96,16 @@ This will build the Nuxt app into the folder `functions/.nuxt` and start the Fir
 `hosting` and `functions`. Now your backend is running on `localhost:5000` and has 
 also hot-reloading for changes inside the `functions` folder.
 
+Since Nuxt.js is running in `universal` mode, the server side rendering is already active when 
+accessing the backend server on `localhost:5000` - but for the local development the reason to
+run Firebase Functions locally are the backend functions.
 
-### What URL now?
-
-Just use `localhost:3000`. In the created `.env` file is a setting for the path to the backend. 
-For the local development it is `API_BASE_URL=http://localhost:5000`. 
+Still use `localhost:3000` to access the app while developing.
 
 
 ## Test SSR app locally
+
+Start only the Firebase Functions.
 
 Execute in the root folder:
 ```$bash
@@ -150,7 +159,7 @@ is no need to provide the Firebase Functions with that variables - they are alre
 
 This task instructs Nuxt to build it's app into the folder `functions/.nuxt`. When done, the content 
 of the folder `./functions/.nuxt/dist/` is copied to `./public/assets`. Finally all static assets 
-(`./src/static/`) are copied plain in the folder `./public`.   
+(`./src/static/`) are also copied in the folder `./public`.   
   
   
 ### npm run deploy
