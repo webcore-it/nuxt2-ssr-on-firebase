@@ -60,12 +60,6 @@
   },
   "firebaseFunctionsDependencies": {
     "firebase-admin": "~6.0.0",
-    "firebase-functions": "^2.1.0",
-    "babel-polyfill": "^6.26.0",
-    "cors": "^2.8.5",
-    "clone": "^2.1.2",
-    "core-js": "^2.5.7",
-    "debug": "^4.1.0",
-    "express": "^4.16.4"
+    "firebase-functions": "^2.1.0"
   }
 }
