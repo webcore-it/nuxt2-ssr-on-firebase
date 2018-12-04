@@ -1,13 +1,11 @@
 .DS_Store
 /node_modules/
-/src/node_modules/
 /functions/node_modules/
 
 # Copied files (will be copied or generated into the
 # functions folder and should not be commited)
 /functions/package.json
 /functions/package-lock.json
-/functions/nuxt.config.js
 
 # env files
 .env

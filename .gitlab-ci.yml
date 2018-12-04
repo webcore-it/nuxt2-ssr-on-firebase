@@ -33,9 +33,6 @@ deploy_develop:
     name: develop
   <<: *node
   script:
-    - touch .env
-    - echo 'BASE_URL='${BASE_URL} >> .env
-    - echo 'API_BASE_URL='${API_BASE_URL} >> .env
     - npm run build
     - npm run deploy
   only:
