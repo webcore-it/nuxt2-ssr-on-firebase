@@ -5,19 +5,20 @@ module.exports = {
   // Basics
   // ======================================================================
   mode: 'universal',
+  srcDir: 'src/',
 
   // ======================================================================
   // Set head section of the page.
   // ======================================================================
   head: {
-    title: 'Nuxt.js 2.0 ssr app on Google Firebase',
+    title: 'Nuxt.js 2.x ssr app on Google Firebase',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Example for hosting a Nuxt.js 2.0 SSR app on Google Firebase.',
+        content: 'Example for hosting a Nuxt.js 2.x SSR app on Google Firebase.',
       },
       { name: 'apple-mobile-web-app-title', content: 'Nuxt 2 Firebase' },
       { name: 'application-name', content: 'Nuxt 2 Firebase' },
@@ -75,7 +76,8 @@ module.exports = {
 
   // ======================================================================
   // Map system env props to internal env. (https://nuxtjs.org/api/configuration-env)
-  // Create a .env file in the same folder as this nuxt.config.js to set your local env variables.
+  // You need to create a .env file in the same folder as this nuxt.config.js
+  // to set your local env variables.
   // ======================================================================
   env: {
     baseUrl: process.env.BASE_URL || '',
@@ -93,22 +95,13 @@ module.exports = {
   // ======================================================================
   // Build configuration
   // ======================================================================
-  buildDir: process.env.BUILD_DIR || './../functions/.nuxt',
+  buildDir: process.env.BUILD_DIR || './functions/.nuxt',
   build: {
     analyze: process.env.ENABLE_ANALYZE_MODE === 'true', // env variables are strings
     publicPath: '/assets/',
     extractCSS: true,
 
-    babel: {
-      'env': {
-        'production': {
-          'plugins': ['transform-remove-console'],
-        },
-      },
-    },
-
     // Extend webpack config
-    // ~~~~~~~~~~~~~~~~~~~~~
     extend(config, { isServer, isDev }) {},
   },
 };

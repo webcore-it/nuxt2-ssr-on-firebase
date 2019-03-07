@@ -1,32 +1,36 @@
 #!/usr/bin/env node
-
 'use strict';
 
+/**
+ * To be able to run Firebase functions, the package.json for Firebase must include a few
+ * more packages, the Nuxt app does not need. Also the devDependencies of the Nuxt app are
+ * not needed for the Firebase functions and will be removed.
+ *
+ * To keep all dependencies organized in one package.json file in the projects root,
+ * this file builds the package.json for the functions folder.
+ */
+
 const fs = require('fs');
+const packageJson = require('./package.json');
 
-const functionsPackage = require('./functions/package.json');
-const srcPackage = require('./src/package.json');
-
-// Merge the 'functionsDependencies' and 'nuxtDependencies' from the ./functions/package.json
-// with the dependencies from the ./src/package.json.
-
-// ?? But... WHY?
-// 1. The Nuxt app in functions will need most of the packages from the /src/package.json to be able
-// to run. To have the same versions of the packages, they are copied.
-//
-// 2. Firebase Functions is not able to resolve all of the dependencies from the nuxt package.json.
-
-// TODO: Find a better way to manage the dependencies
-functionsPackage.dependencies = Object.assign(
+// Merge dependencies
+packageJson.dependencies = Object.assign(
   {},
-  functionsPackage.functionsDependencies,
-  functionsPackage.nuxtDependencies,
-  srcPackage.dependencies
+  packageJson.dependencies,
+  packageJson.firebaseFunctionsDependencies
 );
 
-fs.writeFile('./functions/package.json', JSON.stringify(functionsPackage, null, 2), (err) => {
-  if (err) {
-    throw err;
+// Remove unwanted dependencies.
+packageJson.devDependencies = {};
+
+// Remove merged dependencies.
+packageJson.firebaseFunctionsDependencies = {};
+
+// Remove all scripts.
+packageJson.scripts = {};
+
+fs.writeFile('./functions/package.json', JSON.stringify(packageJson, null, 2), (error) => {
+  if (error) {
+    throw error;
   }
-  console.log('./functions/package.json saved!');
 });

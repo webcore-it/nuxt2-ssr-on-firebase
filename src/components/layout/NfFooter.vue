@@ -2,16 +2,16 @@
 
   <v-footer>
     <v-layout
+      justify-center
       row
       wrap
-      justify-center
     >
       <v-flex
         class="secondary"
-        xs12
         py-3
         text-xs-center
         white--text
+        xs12
       >
         &copy;2018 —
         <strong>
@@ -23,8 +23,8 @@
           </a>
         </strong> -
         <nuxt-link
-          to="/siteNotice"
           class="white--text"
+          to="/siteNotice"
         >
           Site notice
         </nuxt-link>
@@ -36,8 +36,8 @@
 </template>
 
 <script>
-export default {
-  name: 'NfFooter',
-};
+  export default {
+    name: 'NfFooter',
+  };
 </script>
 

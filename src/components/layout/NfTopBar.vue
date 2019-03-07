@@ -1,24 +1,24 @@
 <template>
 
   <v-toolbar
-    fixed
     app
+    fixed
   >
     <v-layout class="toolbar-content-wrapper">
 
       <v-toolbar-title @click="goToRoute('/')">
-        Nuxt 2.0 Firebase
+        Nuxt 2.x on Firebase
       </v-toolbar-title>
 
       <v-spacer/>
 
       <v-toolbar-items>
         <v-btn
-          v-for="(item, i) in navigationItems"
-          :key="i"
           :class="{ 'btn--active': isActive(item.uri)}"
-          flat
+          :key="i"
           @click="goToRoute(item.uri)"
+          flat
+          v-for="(item, i) in navigationItems"
         >
           {{ item.title }}
         </v-btn>
@@ -31,27 +31,27 @@
 
 
 <script>
-import routerMixin from '~/mixins/routerMixin';
+  import routerMixin from '~/mixins/routerMixin';
 
-export default {
-  name: 'NfTopBar',
-  mixins: [
-    routerMixin,
-  ],
-  data: () => ({
-    navigationItems: [
-      {
-        title: 'SSR Example',
-        uri: '/ssrExample',
-      },
-      {
-        title: 'Firestore Example',
-        uri: '/firestoreExample',
-      },
-
+  export default {
+    name: 'NfTopBar',
+    mixins: [
+      routerMixin,
     ],
-  }),
-};
+    data: () => ({
+      navigationItems: [
+        {
+          title: 'SSR Example',
+          uri: '/ssrExample',
+        },
+        {
+          title: 'Firestore Example',
+          uri: '/firestoreExample',
+        },
+
+      ],
+    }),
+  };
 </script>
 
 

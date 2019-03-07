@@ -1,6 +1,6 @@
 {
   "name": "nuxt2-ssr-on-firebase",
-  "description": "Root of nuxt2-ssr-on-firebase",
+  "description": "Example App how to deploy a Nuxt 2 App on Firebase.",
   "version": "1.0.0",
   "author": "Tom Zanthoff <info@webcore-it.com>",
   "private": true,
@@ -9,26 +9,57 @@
   "homepage": "https://github.com/webcore-it/nuxt2-ssr-on-firebase",
   "scripts": {
     "postinstall": "node ./npm-install.js",
-    "dev": "cd ./src && npm run dev",
+
+    "dev": "cross-env HOST=0.0.0.0 DEBUG=nuxt:* NODE_ENV=development nuxt",
+
+    "build": "nuxt build",
     "prebuild": "npm run clean",
-    "build": "cd ./src && npm run build",
     "postbuild": "npm run copyassets && npm run copystatic",
-    "start": "cd ./src && npm run start",
-    "generate": "cd ./src && npm run generate",
-    "serve": "DEBUG=nuxt:* firebase serve --only hosting,functions",
-    "serve:build": "npm run build && npm run serve",
-    "test": "cd ./src && npm run test",
-    "lint": "node ./npm-lint.js",
-    "clean": "mkdir -p ./public && rimraf ./public/* && mkdir -p ./functions/.nuxt && rimraf ./functions/.nuxt/*",
+
+    "clean": "npm run clean:public && npm run clean:functions",
+    "clean:public": "mkdir -p ./public && rimraf ./public/*",
+    "clean:functions": "mkdir -p ./functions/.nuxt && rimraf ./functions/.nuxt/*",
+
     "copyassets": "cp -R ./functions/.nuxt/dist/ ./public/assets",
     "copystatic": "cp -R ./src/static/* ./public",
-    "predeploy": "firebase use --token $FIREBASE_DEPLOY_KEY $CI_ENVIRONMENT_SLUG",
-    "deploy": "firebase deploy --non-interactive --token $FIREBASE_DEPLOY_KEY"
+
+    "start": "cross-env NODE_ENV=production nuxt start",
+    "generate": "nuxt generate",
+    "serve": "DEBUG=nuxt:* firebase serve --only hosting,functions",
+    "serve:build": "npm run build && npm run serve",
+
+    "test": "echo 'todo'",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
+    "deploy": "firebase deploy --non-interactive --token $FIREBASE_DEPLOY_KEY",
+    "predeploy": "firebase use --token $FIREBASE_DEPLOY_KEY $CI_ENVIRONMENT_SLUG"
+  },
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/vuetify": "^0.5.5",
+    "firebase": "^5.8.5",
+    "nuxt": "^2.4.5",
+    "vuetify": "^1.5.5",
+    "vuexfire": "^3.0.0-alpha.5"
   },
   "devDependencies": {
     "copyfiles": "^2.1.0",
-    "firebase-tools": "^6.1.1",
-    "rimraf": "^2.6.2"
+    "cross-env": "^5.2.0",
+    "dotenv": "^6.2.0",
+    "eslint": "^5.15.1",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-vue": "next",
+    "firebase-tools": "^6.4.0",
+    "node-sass": "^4.11.0",
+    "rimraf": "^2.6.3",
+    "sass-loader": "^7.1.0"
   },
-  "dependencies": {}
+  "firebaseFunctionsDependencies": {
+    "big.js": "^5.2.2",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.1.0"
+  }
 }

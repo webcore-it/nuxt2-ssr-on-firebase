@@ -2,7 +2,7 @@
 # multiple jobs. It is disabled (.) to not be interpreted
 # by the GitLab CI runner.
 .node: &node
-  image: node:8.13.0
+  image: node:8.14.0
   before_script:
     - npm install --unsafe-perm
   cache:
@@ -10,7 +10,6 @@
     paths:
       - node_modules/
       - functions/node_modules/
-      - src/node_modules/
 
 stages:
   - test
@@ -25,6 +24,7 @@ test:
     - npm test
   only:
     - develop
+    - staging
     - master
 
 deploy_develop:
