@@ -1,5 +1,5 @@
 # nuxt2-ssr-on-firebase
-Example for hosting a Nuxt.js 2.3 SSR app on Google Firebase Functions running Nodejs 8.
+Example for hosting a Nuxt.js 2.4 SSR app on Google Firebase Functions running Nodejs 8.
 
 Test the deployed version while browsing through the source code: https://nuxt2-example-dev.firebaseapp.com/
 
