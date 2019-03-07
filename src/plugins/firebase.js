@@ -7,6 +7,6 @@ export default () => {
   }
 
   const firestore = firebase.firestore();
-  const settings = { timestampsInSnapshots: true };
+  const settings = {};
   firestore.settings(settings);
 }
